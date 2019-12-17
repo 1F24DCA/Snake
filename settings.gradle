@@ -1,0 +1,2 @@
+include ':app', ':network', ':annotation'
+rootProject.name='SnakeFunctionBetaVer2'
