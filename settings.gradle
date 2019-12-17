@@ -1,2 +1,2 @@
-include ':app', ':network', ':annotation'
+include ':app', ':network', ':processor'
 rootProject.name='SnakeFunctionBetaVer2'
