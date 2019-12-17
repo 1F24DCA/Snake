@@ -1,4 +1,6 @@
 // hazimemashite~~!
+// comment by 1F24DCA
+
 package kr.pe.firstfloor.snake;
 
 import androidx.appcompat.app.AppCompatActivity;
