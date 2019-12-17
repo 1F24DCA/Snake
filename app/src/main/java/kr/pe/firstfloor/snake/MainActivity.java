@@ -13,5 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //제목 설정 -> 테스트 한거니까 지워!
+        setTitle("붸에에에에");
     }
 }
