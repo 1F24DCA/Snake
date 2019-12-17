@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+libs/
+src/main/java/META-INF/
+src/main/java/kr/pe/firstfloor/annotation/processor/
