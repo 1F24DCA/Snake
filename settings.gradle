@@ -1,2 +1,2 @@
 include ':app', ':network', ':processor'
-rootProject.name='SnakeFunctionBetaVer2'
+rootProject.name='Snake'
