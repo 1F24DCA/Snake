@@ -14,7 +14,7 @@ public class User extends Data {
     @Constant
     public static final int REQUEST_USER_LIST = 6;
     @Constant
-    public static final int RESPONSE_USER_LIST = 100;
+    public static final int RESPONSE_USER_LIST = 7;
 
 
     private String userId = null;
