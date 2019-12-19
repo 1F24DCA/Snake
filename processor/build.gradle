@@ -1,33 +1,18 @@
 apply plugin: 'java'
 
 Project srcProject = project(":network")
-Set<String> processorFileSet = [
-        'kr/pe/firstfloor/annotation/processing/CompileProcessor',
-        'kr/pe/firstfloor/annotation/*'
+Set<String> processorSourceSet = [
+    'kr/pe/firstfloor/annotation/processing/CompileProcessor.java',
+    'kr/pe/firstfloor/annotation/*.java'
 ]
 
 // Compile annotation processor
+// Source path is srcProject
+// Output path is this project
 tasks.withType(JavaCompile) {
     source = srcProject.sourceSets.main.java.srcDirs
     classpath = srcProject.sourceSets.main.compileClasspath
-    destinationDir = srcProject.sourceSets.main.output.classesDirs[0] // used index 0 for get classesDir in classesDirs array
+    destinationDir = project.sourceSets.main.output.classesDirs[0] // used index 0 for get classesDir in classesDirs array
 
-    for (String file : processorFileSet)
-        include file+'.java'
-}
-
-// Make jar file into ':processor' project, source from ':network' project
-// Used default destinationDirectory (= build/libs)
-jar {
-    archiveBaseName = "processor"
-
-    // add annotation processor into jar file
-    from (srcProject.sourceSets.main.output.classesDirs.getAsPath()) {
-        for (String file : processorFileSet)
-            include file+'.class'
-    }
-    // add META-INF into jar file
-    from (project.sourceSets.main.resources.srcDirs[0].toString()) { // used index 0 for get srcDir in srcDirs array
-        include 'META-INF/services/javax.annotation.processing.Processor'
-    }
+    includes = processorSourceSet
 }
