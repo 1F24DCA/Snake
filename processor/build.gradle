@@ -1,2 +1,27 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file('Processor.jar'))
+apply plugin: 'java'
+
+// Compile annotation processor
+tasks.withType(JavaCompile) {
+    source = project(":network").sourceSets.main.java.srcDirs
+    classpath = project(":network").sourceSets.main.compileClasspath
+    destinationDir = project(":network").sourceSets.main.output.classesDirs[0] // used index 0 for get classesDir in classesDirs array
+
+    include 'kr/pe/firstfloor/annotation/processing/CompileProcessor.java'
+    include 'kr/pe/firstfloor/annotation/*.java'
+}
+
+// Make jar file into ':processor' project, source from ':network' project
+// Used default destinationDirectory (= build/libs)
+jar {
+    archiveBaseName = "processor"
+
+    // add annotation processor into jar file
+    from (project(':network').sourceSets.main.output.classesDirs.getAsPath()) {
+        include 'kr/pe/firstfloor/annotation/processing/CompileProcessor.class'
+        include 'kr/pe/firstfloor/annotation/*.class'
+    }
+    // add META-INF into jar file
+    from (project(":processor").sourceSets.main.resources.srcDirs[0].toString()) { // used index 0 for get srcDir in srcDirs array
+        include 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}

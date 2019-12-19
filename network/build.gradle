@@ -2,7 +2,7 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    annotationProcessor project(':processor')
+    try { annotationProcessor project(":processor") } catch (Exception e) { e.printStackTrace() }
 }
 
 sourceCompatibility = "8"
