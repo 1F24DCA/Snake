@@ -11,15 +11,15 @@ import kr.pe.firstfloor.util.StackTrace;
 
 public class Room extends Data implements Comparable<Room> {
 	@Constant
-    public static final int REQUEST_ROOM_LIST = 8;
+    public static final int REQUEST_ROOM_LIST = 9;
 	@Constant
-    public static final int RESPONSE_ROOM_LIST = 9;
+    public static final int RESPONSE_ROOM_LIST = 10;
 	@Constant
-    public static final int REQUEST_ROOM_CREATE = 10;
+    public static final int REQUEST_ROOM_CREATE = 11;
 	@Constant
-    public static final int REQUEST_ROOM_JOIN = 11;
+    public static final int REQUEST_ROOM_JOIN = 12;
 	@Constant
-    public static final int REQUEST_ROOM_LEAVE = 12;
+    public static final int REQUEST_ROOM_LEAVE = 13;
 
 	// Member variables
 	private int roomId;

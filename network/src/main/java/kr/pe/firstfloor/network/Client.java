@@ -14,9 +14,9 @@ import kr.pe.firstfloor.util.StackTrace;
 
 public class Client implements Endpoint {
 	@Constant
-    static final int SIGNAL_LOGIN_REQUEST = 4;
+    static final int SIGNAL_LOGIN_REQUEST = 5;
 	@Constant
-    static final int SIGNAL_DISCONNECT = 5;
+    static final int SIGNAL_DISCONNECT = 6;
 
 
 	private IOHandler handler;

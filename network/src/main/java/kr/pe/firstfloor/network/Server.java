@@ -15,14 +15,14 @@ import kr.pe.firstfloor.util.StackTrace;
 
 public class Server implements Endpoint {
 	@Constant
-    static final int SIGNAL_LOGIN_ACCEPT = 0;
+    static final int SIGNAL_LOGIN_ACCEPT = 1;
 	@Constant
-    static final int SIGNAL_KICK = 1;
+    static final int SIGNAL_KICK = 2;
 	@Constant
-    static final int SIGNAL_CLOSE = 2;
+    static final int SIGNAL_CLOSE = 3;
 
 	@Constant
-    public static final int COMMAND_DATA = 3;
+    public static final int COMMAND_DATA = 4;
 
 
 	private int maxAccepts;

@@ -12,9 +12,9 @@ import kr.pe.firstfloor.util.StackTrace;
 
 public class User extends Data {
     @Constant
-    public static final int REQUEST_USER_LIST = 6;
+    public static final int REQUEST_USER_LIST = 7;
     @Constant
-    public static final int RESPONSE_USER_LIST = 7;
+    public static final int RESPONSE_USER_LIST = 8;
 
 
     private String userId = null;
