@@ -120,7 +120,7 @@ public class User extends Data {
     public String getUserId() { return userId; }
     public long getRemoveTime() { return removeTime; }
     public void setUserId(String userId) {
-        if (userId == null)
+        if (userId != null)
             this.userId = userId;
     }
 }
