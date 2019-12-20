@@ -40,14 +40,15 @@ public class CompileProcessor extends AbstractProcessor {
             boolean haveConstructorWithNoParameter = false;
             for (Element enclosedElement : extendedElement.getEnclosedElements()) {
                 if (enclosedElement instanceof ExecutableElement
-                && enclosedElement.toString().startsWith(extendedElement.getSimpleName().toString()))
+                && enclosedElement.toString().startsWith(extendedElement.getSimpleName().toString())) {
                     if (!enclosedElement.getModifiers().contains(Modifier.PROTECTED))
                         processingEnv.getMessager().printMessage(Kind.ERROR, "@ExtendableSingletonClass "
                                 + (extendedElement.equals(superclassElement) ? "" : "(in superclass " + superclassElement.getQualifiedName() + ")")
                                 + " annotation: expected only protected modifier at every constructor, but found modifiers "
                                 + enclosedElement.getModifiers().toString() + "!", enclosedElement);
-                    else if (((ExecutableElement) enclosedElement).getParameters().size() == 0)
+                    if (((ExecutableElement) enclosedElement).getParameters().size() == 0)
                         haveConstructorWithNoParameter = true;
+                }
             }
 
             if (!haveConstructorWithNoParameter)
