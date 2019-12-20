@@ -1,2 +1,2 @@
-include ':app', ':network', ':processor'
+include ':app', ':network', ':network:processor'
 rootProject.name='Snake'

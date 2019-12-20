@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+String processor = 'kr/pe/firstfloor/annotation/processing/CompileProcessor.java'
+Set<String> processorDependencySet = ['kr/pe/firstfloor/annotation/*.java']
+
+// Compile annotation processor
+// Source path is parent project (:network)
+// Output path is this project (:network:processor)
+tasks.withType(JavaCompile) {
+    source = parent.sourceSets.main.java.srcDirs
+    classpath = parent.sourceSets.main.compileClasspath
+    destinationDir = project.sourceSets.main.output.classesDirs[0] // used index 0 for get classesDir in classesDirs array
+
+    Set<String> processorSet = [processor]
+    processorSet.addAll(processorDependencySet)
+
+    includes = processorSet
+}
+
+// Make 'javax.annotation.processing.Processor' resource for notice to compiler find processor easily
+// Create new directory for initial build
+String processorInfoPath = project.sourceSets.main.output.resourcesDir.getPath() + '/META-INF/services'
+mkdir processorInfoPath
+// Create 'javax.annotation.processing.Processor' file and write canonical name of processor class in created file
+File processorInfo = file(processorInfoPath + '/javax.annotation.processing.Processor')
+processorInfo.write(processor.replace("/", ".").replace(".java", ""))
