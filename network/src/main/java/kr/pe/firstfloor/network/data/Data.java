@@ -25,7 +25,7 @@ public class Data {
                     @Override
                     public void onConnected(User user, boolean isReconnected) {
                         if (isReconnected) {
-                            user.setRemoveTime(0);
+                            user.resetRemoveTime();
 
                             // TODO: rollback last used activity for disconnected users.
                         }
@@ -33,7 +33,7 @@ public class Data {
 
                     @Override
                     public void onDisconnected(User user, String reason) {
-                        user.setRemoveTime();
+                        user.setRemoveTime(90);
                     }
                 });
             } else if (endpoint instanceof Client) {

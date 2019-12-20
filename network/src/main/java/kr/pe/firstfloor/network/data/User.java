@@ -110,9 +110,10 @@ public class User extends Data {
     }
 
 
-    public void setRemoveTime() {
-        if (getRemoveTime() == 0)
-            setRemoveTime(System.currentTimeMillis() + 90*1000L);
+    public void resetRemoveTime() { this.removeTime = 0L; }
+    public void setRemoveTime(int time) {
+        if (getRemoveTime() == 0L)
+            this.removeTime = System.currentTimeMillis() + time*1000L;
     }
 
 
@@ -122,6 +123,5 @@ public class User extends Data {
         if (userId == null)
             this.userId = userId;
     }
-    public void setRemoveTime(long removeTime) { this.removeTime = removeTime; }
 }
 //
