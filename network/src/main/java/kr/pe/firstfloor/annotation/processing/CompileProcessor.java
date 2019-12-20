@@ -18,11 +18,6 @@ import kr.pe.firstfloor.annotation.ExtendableSingletonClass;
 @SupportedAnnotationTypes("*")
 public class CompileProcessor extends AbstractProcessor {
     @Override
-    public synchronized void init(ProcessingEnvironment processingEnvironment) {
-        super.init(processingEnvironment);
-    }
-
-    @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         Set<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(ExtendableSingletonClass.class);
 
