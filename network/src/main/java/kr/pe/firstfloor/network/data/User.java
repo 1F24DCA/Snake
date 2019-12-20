@@ -77,6 +77,8 @@ public class User extends Data {
                                     Data.remove(user);
 
                                     break;
+                                } else {
+                                    try { Thread.yield(); } catch (Exception e) {}
                                 }
                             }
                         }
